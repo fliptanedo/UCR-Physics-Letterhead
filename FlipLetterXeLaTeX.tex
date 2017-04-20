@@ -1,0 +1,108 @@
+\documentclass{letter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% UCR PHYSICS & ASTRO LETTER TEMPLATE %%
+%% by Flip Tanedo (Fall 2016)          %%
+%% ----------------------------------- %%
+%% Important notes:                    %%
+%% This is designed to use XeLaTeX     %%
+%% (Should be installed with MacTeX)   %%
+%% Requires: Helvetica Neue            %%
+%% Requires: Titillium Web             %%
+%% XeLaTeX + graphicx: rew. pdf < v1.4 %%
+%%  .. i.e. export pdfs to Adobe v1.4  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+\usepackage[margin=3.3cm]{geometry}
+\usepackage{lipsum}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{graphicx} 
+
+%% CALLING XeLaTeX:
+\usepackage[no-math]{fontspec}
+\setsansfont{Helvetica Neue UltraLight}
+\newfontfamily\myweb[
+Ligatures=TeX, 
+UprightFont={*Light},
+LetterSpace=10.0
+]{Titillium Web}
+
+\usepackage[
+	colorlinks=true,
+	citecolor=black,
+	linkcolor=black,
+	urlcolor=blue!75!black,
+	hypertexnames=false]{hyperref}
+
+
+\newcommand{\email}[1]{\texttt{\href{mailto:#1}{#1}}}
+\renewcommand{\email}[1]{\myweb{\href{mailto:#1}{#1}}}
+
+
+%\address{% 
+%Physics Building, Office 3034\\
+%900 University Avenue\\
+%%University of California \\ 
+%Riverside, CA 92521-0413\\
+%Office: (951) 827 6168\\
+%\email{flip.tanedo@ucr.edu}
+%}
+
+\address{% 
+\sffamily \addfontfeature{LetterSpace=10.0}
+3054 PHYSICS BUILDING\\
+\sffamily \addfontfeature{LetterSpace=10.0}
+900 UNIVERSITY AVENUE\\
+%University of California \\ 
+\sffamily \addfontfeature{LetterSpace=10.0}
+RIVERSIDE, CA 92521-0413\\
+\sffamily \addfontfeature{LetterSpace=10.0}
+OFFICE: (951) 827 6168\\
+\sffamily \addfontfeature{LetterSpace=10.0}
+EMAIL:
+\email{your.email@ucr.edu}
+}
+
+
+%\date{For Manual Entry of Date}
+
+\renewcommand{\headrulewidth}{0pt} 
+
+% If no address
+\fancypagestyle{firstpage}{\fancyhf{}\fancyhead[R]{\includegraphics[width=\textwidth, keepaspectratio=true]{UCRphysics_letterhead_adobev4}}}
+
+% If using address
+\fancypagestyle{empty}{\fancyhf{}\fancyhead[R]{\includegraphics[width=\textwidth, keepaspectratio=true]{UCRphysics_letterhead_adobev4}}}
+
+\pagestyle{plain}
+\begin{document}%
+    \begin{letter}{
+    Person's address\\
+    goes here
+    }%
+        \opening{Dear Some Name,}
+        \lipsum[1-7]     
+        
+        
+        %% FOR NO SIGNATURE GRAPHIC
+        %\signature{Flip Tanedo}        
+		%\closing{Yours Faithfully,}
+        
+		%% IF USING SIGNATURE GRAPHIC
+		\closing{Yours faithfully,\\
+			\fromsig{
+				\includegraphics[width=7cm]{Signature}
+			} \\	
+			\fromname{Flip Tanedo, Assistant Professor}
+		}
+
+\cc{blah}
+\ps{P.S.~You can find the full text of GFDL license at
+\url{http://www.gnu.org/copyleft/fdl.html}.}
+\encl{Copyright permission form}
+
+     
+    \end{letter}%
+\end{document}%
